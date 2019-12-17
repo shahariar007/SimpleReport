@@ -4,84 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#147FDD"
+    android:background="@drawable/login_screen_color"
     android:gravity="center"
     tools:context=".activity.MainActivity">
 
-    <androidx.cardview.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_10sdp"
-        app:cardCornerRadius="4dp">
+        android:fillViewport="true">
 
-        <RelativeLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp">
+            android:layout_margin="@dimen/_10sdp"
+            app:cardCornerRadius="4dp">
 
-            <TextView
-                android:id="@+id/showTexts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="LOGIN"
-                android:textColor="@color/screen_color"
-                android:textStyle="bold"
-                android:layout_centerHorizontal="true"
-                android:textSize="@dimen/_20sdp"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/userLayout"
-                android:layout_below="@id/showTexts"
-                android:layout_marginTop="@dimen/_10sdp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="User ID">
+                android:layout_margin="@dimen/_10sdp">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/userID"
+                <TextView
+                    android:id="@+id/showTexts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="LOGIN"
+                    android:textColor="@color/screen_color"
+                    android:textSize="@dimen/_20sdp"
+                    android:textStyle="bold" />
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/userLayout"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:hint="Password"
-                app:passwordToggleEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/userLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_below="@id/showTexts"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:hint="User ID">
 
-            <CheckBox
-                android:id="@+id/remember"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/passwordLayout"
-                android:layout_marginTop="@dimen/_4sdp"
-                android:text="Remember" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/userID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/userLogin"
-                android:layout_width="@dimen/_200sdp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/remember"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="#147FDD"
-                android:text="Login"
-                android:textColor="#ffffff" />
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwordLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/userLayout"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:hint="Password"
+                    app:passwordToggleEnabled="true">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
 
+                <CheckBox
+                    android:id="@+id/remember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/passwordLayout"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="Remember" />
+
+                <Button
+                    android:id="@+id/userLogin"
+                    android:textSize="@dimen/_16sdp"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/remember"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/screen_color"
+                    android:text="Login"
+                    android:textColor="#ffffff" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </ScrollView>
 </RelativeLayout>
