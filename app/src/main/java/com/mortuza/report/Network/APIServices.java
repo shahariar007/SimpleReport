@@ -22,4 +22,10 @@ public interface APIServices {
 //    @Headers({"app-type: consumer-app", "Content-Type: application/json"})
 //    Call<ResponseWrapperArray<ModelUser>> login(@Header(KEY_APP_AUTHENTICATION_TOKEN) String app_authorization_key, @Header(KEY_USER_AUTHENTICATION_TOKEN) String authorization_key, @Body HashMap<String, Object> body);
 //
+
+    //http://192.168.0.102/report/postuser.php   user_id  password
+    //http://192.168.0.102/report/getuserreport.php   user_id
+    //http://192.168.0.102/report/createreport.php   user_id  report_title  report_description
+
+
 }

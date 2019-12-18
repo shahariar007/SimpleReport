@@ -5,10 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.CubeGrid;
+import com.github.ybq.android.spinkit.style.DoubleBounce;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.mortuza.report.R;
@@ -22,16 +26,22 @@ public class MainActivity extends AppCompatActivity {
     private TextInputLayout mPasswordlayout;
     private CheckBox mRemember;
     private Button mUserlogin;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+
+        CubeGrid doubleBounce = new CubeGrid();
+        progressBar.setIndeterminateDrawable(doubleBounce);
+
         mUserlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ReportActivity.class));
+               // startActivity(new Intent(MainActivity.this, ReportActivity.class));
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
     }
@@ -45,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         mPasswordlayout = findViewById(R.id.passwordLayout);
         mRemember = findViewById(R.id.remember);
         mUserlogin = findViewById(R.id.userLogin);
+        progressBar = (ProgressBar) findViewById(R.id.progress);
     }
 }
 
