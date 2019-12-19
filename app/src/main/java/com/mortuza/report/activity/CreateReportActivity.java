@@ -1,6 +1,7 @@
 package com.mortuza.report.activity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -25,6 +26,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.mortuza.report.Network.APIClient;
 import com.mortuza.report.Network.APIServices;
 import com.mortuza.report.R;
+import com.mortuza.report.model.report.Datum;
 import com.mortuza.report.model.report.ReportConfirmation;
 
 import retrofit2.Call;
@@ -145,7 +147,17 @@ public class CreateReportActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ReportConfirmation> call, Response<ReportConfirmation> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().getStatus()) {
-                    alertDialog(response.body().getReportId());
+
+                    Datum datum=new Datum();
+                    datum.setDescription(reportDescription);
+                    datum.setTitle(title);
+                    datum.setId(String.valueOf(response.body().getReportId()));
+                    datum.setStatus("0");
+
+                    Intent intent=new Intent();
+                    intent.putExtra("GO",datum);
+
+                    alertDialog(response.body().getReportId(),intent);
                 } else {
                     Toast.makeText(CreateReportActivity.this, "Can't send report.Please try again", Toast.LENGTH_LONG).show();
                 }
@@ -160,7 +172,7 @@ public class CreateReportActivity extends AppCompatActivity {
         });
     }
 
-    public void alertDialog(int reportID) {
+    public void alertDialog(int reportID,final Intent datum) {
         AlertDialog.Builder builder = new AlertDialog.Builder(CreateReportActivity.this);
         builder.setTitle("Report Status");
         builder.setCancelable(false);
@@ -169,6 +181,7 @@ public class CreateReportActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
+                setResult(RESULT_OK,datum);
                 finish();
             }
         });

@@ -12,6 +12,7 @@ import android.view.animation.LayoutAnimationController;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -59,7 +60,7 @@ public class ReportActivity extends AppCompatActivity implements CallBack {
         mAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ReportActivity.this, CreateReportActivity.class));
+                startActivityForResult(new Intent(ReportActivity.this, CreateReportActivity.class), 100);
 
             }
         });
@@ -178,4 +179,18 @@ public class ReportActivity extends AppCompatActivity implements CallBack {
         Toast.makeText(this, "Error on position", Toast.LENGTH_SHORT).show();
     }
 }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100 && data != null && data.getSerializableExtra("GO") != null && resultCode == RESULT_OK) {
+
+            if (adapters != null && datumList != null) {
+                Datum datum = (Datum) data.getSerializableExtra("GO");
+                datumList.add(0, datum);
+                adapters.notifyDataSetChanged();
+            }
+        }
+
+    }
 }
