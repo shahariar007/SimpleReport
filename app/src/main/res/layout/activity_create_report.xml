@@ -17,53 +17,81 @@
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_8sdp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/reportLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:hint="Report Title">
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_8sdp"
+                android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/reportTitle"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/reportLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:hint="Report Title">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/reportDetailLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:hint="Report Details">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reportTitle"
+                        android:layout_width="match_parent"
+                        android:gravity="top|left"
+                        android:layout_height="wrap_content"
+                        android:maxLength="150" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/reportDetail"
+                <TextView
+                    android:id="@+id/textCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:maxLength="150"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:text="0/150" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/reportDetailLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_200sdp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:hint="Report Details">
 
-            <Button
-                android:id="@+id/submit"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/reportDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|left"
+                        android:minHeight="@dimen/_300sdp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/screen_color"
+                    android:paddingStart="@dimen/_20sdp"
+                    android:paddingRight="@dimen/_20sdp"
+                    android:text="Submit"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16sdp" />
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:paddingStart="@dimen/_20sdp"
-                android:paddingRight="@dimen/_20sdp"
-                android:background="@color/screen_color"
-                android:text="Submit"
-                android:textSize="@dimen/_16sdp"
-                android:textColor="@color/white" />
-
-        </LinearLayout>
+                android:layout_centerInParent="true"
+                android:background="@color/colorAccent"
+                android:visibility="gone"
+                android:padding="@dimen/_12sdp" />
+        </RelativeLayout>
     </ScrollView>
+
 </LinearLayout>

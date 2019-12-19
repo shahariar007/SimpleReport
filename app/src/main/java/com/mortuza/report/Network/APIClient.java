@@ -1,6 +1,8 @@
 package com.mortuza.report.Network;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -11,8 +13,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
 
-//    private static final String BASE_URL = "http://202.59.140.108:92/EDetailing/api/";
-    private static final String BASE_URL = "";
+    private static final String BASE_URL = "http://192.168.0.102/report/";
+   // private static final String BASE_URL = "";
 
     private static Retrofit retrofit = null;
 

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D6D6D3"
     tools:context=".activity.ReportActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -10,12 +11,62 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_width="match_parent"
         android:background="@color/screen_color" />
+<!--    <LinearLayout-->
+<!--        android:layout_below="@id/toolbar"-->
+<!--        android:id="@+id/header"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="@dimen/_2sdp">-->
 
+<!--        <TextView-->
+<!--            android:paddingTop="@dimen/_10sdp"-->
+<!--            android:paddingBottom="@dimen/_10sdp"-->
+<!--            android:id="@+id/reportID"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight=".5"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:background="@color/title"-->
+<!--            android:layout_margin="1dp"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Report ID" />-->
+
+<!--        <TextView-->
+<!--            android:paddingTop="@dimen/_10sdp"-->
+<!--            android:paddingBottom="@dimen/_10sdp"-->
+<!--            android:id="@+id/reportDetails"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="2"-->
+<!--            android:gravity="center"-->
+<!--            android:lines="2"-->
+<!--            android:layout_margin="1dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:background="@color/title"-->
+<!--            android:ellipsize="end"-->
+<!--            android:text="Report Title" />-->
+
+<!--        <TextView-->
+<!--            android:paddingTop="@dimen/_10sdp"-->
+<!--            android:paddingBottom="@dimen/_10sdp"-->
+<!--            android:id="@+id/reportStatus"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="0.5"-->
+<!--            android:gravity="center"-->
+<!--            android:lines="2"-->
+<!--            android:layout_margin="1dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:background="@color/title"-->
+<!--            android:text="Status" />-->
+
+<!--    </LinearLayout>-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reportRecycle"
         android:layout_below="@+id/toolbar"
+        android:layoutAnimation="@anim/layout_anim"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
@@ -26,4 +77,13 @@
         android:layout_margin="@dimen/_4sdp"
         android:src="@drawable/ic_create_black_36dp"
         android:theme="@style/fab_Theme" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:background="@color/colorAccent"
+        android:padding="@dimen/_12sdp" />
 </RelativeLayout>

@@ -92,11 +92,10 @@
     </ScrollView>
 
     <ProgressBar
-        style="@style/Widget.AppCompat.ProgressBar"
         android:layout_centerInParent="true"
         android:id="@+id/progress"
-        android:background="#0A8F99"
-        android:padding="@dimen/_8sdp"
+        android:background="@color/colorAccent"
+        android:padding="@dimen/_12sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </RelativeLayout>
